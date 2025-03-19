@@ -1,5 +1,6 @@
 package com.example.myunittest
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
@@ -48,15 +49,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                         visible()
                     }
                     R.id.btn_calculate_circumference -> {
-                        mainViewModel.save(valueLength, valueWidth, valueHeight)
+                        binding.tvResult.text = mainViewModel.getCircumference().toString()
                         gone()
                     }
                     R.id.btn_calculate_surface_area -> {
-                        mainViewModel.save(valueLength, valueWidth, valueHeight)
+                        binding.tvResult.text = mainViewModel.getSurfaceArea().toString()
                         gone()
                     }
                     R.id.btn_calculate_volume -> {
-                        mainViewModel.save(valueLength, valueWidth, valueHeight)
+                        binding.tvResult.text = mainViewModel.getVolume().toString()
                         gone()
                     }
                 }
@@ -68,13 +69,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.btnCalculateVolume.visibility = View.GONE
         binding.btnCalculateCircumference.visibility = View.GONE
         binding.btnCalculateSurfaceArea.visibility = View.GONE
-        binding.btnSave.visibility = View.VISIBLE
+        binding.btnSave.visibility = View.GONE
     }
 
     private fun visible() {
         binding.btnCalculateVolume.visibility = View.VISIBLE
         binding.btnCalculateCircumference.visibility = View.VISIBLE
         binding.btnCalculateSurfaceArea.visibility = View.VISIBLE
-        binding.btnSave.visibility = View.GONE
+        binding.btnSave.visibility = View.VISIBLE
     }
 }

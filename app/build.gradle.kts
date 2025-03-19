@@ -45,12 +45,16 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.core.ktx)
 
     //Pengujian Menggunakan JUnit dan Mockito
     testImplementation(libs.mockito.core)
     testImplementation(libs.mockito.kotlin)
     testImplementation(libs.junit)
     testImplementation(libs.junit.junit)
+    testImplementation(libs.junit.junit)
+    testImplementation(libs.androidx.runner)
+    testImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
 
     //espresso
