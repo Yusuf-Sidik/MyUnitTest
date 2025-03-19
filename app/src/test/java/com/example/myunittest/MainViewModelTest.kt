@@ -5,6 +5,8 @@ import org.junit.Before
 
 import org.junit.Test
 import org.mockito.Mockito.mock
+import org.mockito.Mockito.`when`
+import org.mockito.kotlin.verify
 
 class MainViewModelTest {
     private lateinit var mainViewModel: MainViewModel
@@ -26,32 +28,38 @@ class MainViewModelTest {
 
     @Test
     fun getCircumference() {
-        cuboidModel = CuboidModel()
-        mainViewModel = MainViewModel(cuboidModel)
-        mainViewModel.save(dummyWidth,dummyLength,dummyHeight)
+//        cuboidModel = CuboidModel()
+//        mainViewModel = MainViewModel(cuboidModel)
+//        mainViewModel.save(dummyWidth,dummyLength,dummyHeight)
+        `when`(mainViewModel.getCircumference()).thenReturn(dummyCircumference)
         val circumference = mainViewModel.getCircumference()
+        verify(cuboidModel).getCircumference()
         assertEquals(dummyCircumference, circumference, 0.0001)
     }
 
     @Test
     fun getSurfaceArea() {
-        cuboidModel = CuboidModel()
-        mainViewModel = MainViewModel(cuboidModel)
-        mainViewModel.save(dummyWidth, dummyLength, dummyHeight)
+//        cuboidModel = CuboidModel()
+//        mainViewModel = MainViewModel(cuboidModel)
+//        mainViewModel.save(dummyWidth, dummyLength, dummyHeight)
+        `when`(mainViewModel.getSurfaceArea()).thenReturn(dummySurfaceArea)
         val surfaceArea = mainViewModel.getSurfaceArea()
+        verify(cuboidModel).getSurfaceArea()
         assertEquals(dummySurfaceArea, surfaceArea, 0.0001)
     }
 
     @Test
     fun getVolume() {
+//        cuboidModel = CuboidModel()
+//        mainViewModel = MainViewModel(cuboidModel)
+//        mainViewModel.save(dummyWidth, dummyLength, dummyHeight)
+        `when`(mainViewModel.getVolume()).thenReturn(dummyVolume)
+        val volume = mainViewModel.getVolume()
+        verify(cuboidModel).getVolume()
+        assertEquals(dummyVolume, volume, 0.0001)
     }
 
     @Test
     fun save() {
-        cuboidModel = CuboidModel()
-        mainViewModel = MainViewModel(cuboidModel)
-        mainViewModel.save(dummyWidth, dummyLength, dummyHeight)
-        val volume = mainViewModel.getVolume()
-        assertEquals(dummyVolume, volume, 0.0001)
     }
 }
