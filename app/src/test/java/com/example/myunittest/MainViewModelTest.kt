@@ -1,5 +1,6 @@
 package com.example.myunittest
 
+import junit.framework.TestCase.assertEquals
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mockito.mock
@@ -8,6 +9,12 @@ class MainViewModelTest {
 
     private lateinit var mainViewModel: MainViewModel
     private lateinit var cuboidModel: CuboidModel
+
+    private val dummyLength = 12.0
+    private val dummyWidth = 7.0
+    private val dummyHeight = 6.0
+
+    private val dummyVolume = 500.0
 
     @Before
     fun before() {
@@ -25,6 +32,11 @@ class MainViewModelTest {
 
     @Test
     fun getVolume() {
+        cuboidModel = CuboidModel()
+        mainViewModel = MainViewModel(cuboidModel)
+        mainViewModel.save(dummyWidth, dummyLength, dummyHeight)
+        val volume = cuboidModel.getVolueme()
+        assertEquals(dummyVolume, volume, 0.0001)
     }
 
     @Test
