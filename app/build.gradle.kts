@@ -45,7 +45,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    //Pengujian Menggunakan JUnit dan Mockito
+    testImplementation(libs.mockito.cor)
+    testImplementation(libs.mockito.inline)
     testImplementation(libs.junit)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
